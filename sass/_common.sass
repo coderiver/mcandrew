@@ -47,18 +47,109 @@
 // p
 // 	+jpg(bla)
 
++font(Lato-Medium, Lato-Medium)  
+=fm
+	font-family: "Lato-Medium", Arial, sans-serif 
++font(Lato-Semibold, Lato-Semibold)  
+=fsb
+	font-family: "Lato-Semibold", Arial, sans-serif 
+
+$bg: #1b272b
+$red: #D63B55
 
 body
 	font-family: Arial, sans-serif 
 	font-size: 12px 
-	line-height: 1.4
-
+	line-height: 1.3
+a
+	text-decoration: none
 
 // common blocks      
+.wrap
+	min-height: 100vh
+	border: 30px solid $bg
+	
+.main
+	position: relative
+	height: calc(100vh - 60px)
+	background: $bg 
+	.main__header
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		padding: 20px 25px 0 30px
+		z-index: 4 
+	.main__slider,
+	.main__slide
+		width: 100%
+		height: 100%
+	.main__slider
+		z-index: 2 
+	.main__slide
+		background-size: cover 
+		background-position: 50% 50%
+	.main__slide_first
+		background-image: url(../img/bg1.jpg) 
+	.main__slide_second
+		background-image: url(../img/bg2.jpg) 
+	.main__slide_third
+		background-image: url(../img/bg3.jpg)
+	.main__links
+		float: right
+		li
+			float: left
+			margin-left: 15px
+			padding-left: 15px
+			border-left: 1px solid #fff
+			+fm
+			color: #FFF
+			text-transform: uppercase
+			&:first-child
+				margin: 0
+				padding: 0
+				border: none
+		a
+			+fsb
+			color: #FFF
+			text-transform: uppercase
+	.logo
+		margin-bottom: 32px
+	.nav
+		clear: both
 
+.logo
+	float: left
+	+s(logo)
 
+.est
+	position: absolute
+	right: 25px
+	bottom: 25px
+	+s(est)
+	z-index: 4 
 
-
+.nav
+	.nav__list
+		+clr
+		>li
+			float: left
+			margin-left: 10px
+			&:first-child
+				margin: 0
+			>a
+				display: block
+				width: 135px
+				padding: 6px
+				border: 1px solid #fff
+				+fm
+				font-size: 20px
+				color: #FFF
+				text-transform: uppercase
+				text-align: center
+				&:hover
+					border-color: $red
+					box-shadow: 0 0 0 1px $red
 
 
 
