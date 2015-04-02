@@ -1,19 +1,17 @@
 head.ready(function() {
 
-	// $(document).on("click", function(){
-	// 	$(".js-popup").hide();
-	// });
-
-	// function scrollFixedElements() {
-	//     var scroll_left = $(this).scrollLeft();
-	//     $(".fixed-element").css({
-	//         left: -scroll_left
-	//     });
-	// }
-	// scrollFixedElements();
-	// $(window).scroll(function(){
-	//     scrollFixedElements()
-	// });
-
-	console.log($('body').html());
+// select
+(function () {
+	var el = $('.js-select');
+	if (el.length) {
+		el.each(function () {
+			el.find('select').on('change', function () {
+		    var thisEl = $(this),
+		    	value = $(this).val();
+		    thisEl.prev().html(value);
+		});
+		});
+	};
+}());
+	
 });
