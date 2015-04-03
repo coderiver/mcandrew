@@ -202,10 +202,14 @@ a
 	margin: 0 15px
 	&.col_w150
 		width: 150px
+	&.col_w370
+		width: 370px
 	&.col_w380
 		width: 380px
 	&.col_w490	
 		width: 490px
+	&.col_w500	
+		width: 500px
 	&.col_w720	
 		width: 720px
 
@@ -255,6 +259,8 @@ a
 	+s(mail-b)
 .icon-mob-b
 	+s(mob-b)
+.icon-phone-big-b
+	+s(phone-big-b)
 .icon-in-s
 	+s(in-s)
 
@@ -313,8 +319,10 @@ a
 		padding-top: 35px
 
 .sl
+	height: 300px
 	margin-bottom: 60px
 	background: $bg 
+	overflow: hidden
 	z-index: 2 
 	&.sl_mb0
 		margin-bottom: 0
@@ -371,6 +379,10 @@ a
 				height: 5px
 				background: #666766
 				border-radius: 50% 
+	&.content_mb20
+		margin-bottom: 20px
+		p, ul
+			margin-bottom: 20px
 	&.content_people
 		padding-bottom: 40px
 		text-align: center
@@ -383,7 +395,12 @@ a
 	font-weight: 400 
 	line-height: 1
 	color: $red  
-	&.h__
+	&.h_2
+		margin-bottom: 20px
+		+fb
+		font-size: 20px
+	&.h_upper
+		text-transform: uppercase
 
 .footer
 	padding: 30px 0 20px
@@ -586,11 +603,22 @@ a
 
 .contacts
 	margin-bottom: 30px
-	a,
-	>span
-		display: table
+	.contacts__item
 		float: left
 		margin: 0 30px 10px 0
+		&:last-child
+			margin: 0 30px 0 0
+	.contacts__l
+		display: table
+		width: 100%
+		table-layout: fixed
+	.contacts__col
+		display: table-cell
+		padding-left: 30px
+		vertical-align: middle
+		&:first-child
+			padding: 0 30px 0 0
+			border-right: 1px solid $red
 	.contacts__cell
 		display: table-cell
 		height: 25px
@@ -602,9 +630,22 @@ a
 		line-height: 1.2
 		&:first-child
 			width: 32px
-	.icon-mail-b
+	.contacts__list
+		+fl
+		font-size: 15px
+		li
+			margin-top: 3px
+			&:first-child
+				margin: 0
+	.icon-mail-b,
+	.icon-phone-big-b
 		position: relative
+	.icon-mail-b
 		left: -7px
+	.icon-phone-big-b
+		left: -3px
+	.icon-mob-b
+		margin-left: 4px
 
 .bg
 	position: relative
@@ -698,30 +739,151 @@ a
 			vertical-align: top
 			font-size: 0
 
+.story
+	position: relative
+	margin-bottom: 40px
+	padding: 10px 0 0 50px
+	.story__list
+		position: relative
+		z-index: 4 
+	.story__item
+		position: relative
+		margin-bottom: 30px
+		&:last-child
+			&:before
+				content: ""
+				position: absolute
+				top: 0
+				left: -44px
+				bottom: -30px
+				width: 8px
+				background: #FFF 
+	.story__year
+		position: relative
+		padding: 9px 33px
+		background: $red 
+		+fm
+		font-size: 40px
+		color: #FFF 
+		&:before,
+		&:after
+			content: ""
+			position: absolute
+		&:before
+			top: -10px
+			left: -50px
+			width: 20px
+			height: 20px
+			background: $red
+			border-radius: 50% 
+		&:after
+			top: 0
+			left: -20px
+			+arr(20,20,$red,tr) 
+	.story__l
+		display: table
+		width: 100%
+		padding: 30px
+		background: #ECEDF1 
+	.story__col
+		display: table-cell
+		padding-left: 30px
+		vertical-align: top 
+		&:first-child
+			width: 230px
+			padding: 0 30px 0 0
+			border-right: 1px solid #a8b2c0
+	.story__title
+		text-align: right
+		+fl
+		font-size: 24px
+		font-style: italic
+		color: $black 
+	.story__line
+		position: absolute
+		top: 0
+		left: 6px
+		bottom: 0
+		width: 8px 
+		background: #ecedf1 
+		border-radius: 4px
+		z-index: 2 
 
+.gallery
+	overflow: hidden
+	.gallery__list
+		margin: 0 -30px -20px 0
+		font-size: 0
+		a
+			display: inline-block
+			width: 90px
+			height: 90px
+			margin: 0 20px 20px 0
+			vertical-align: top
 
+.logos
+	margin-bottom: 50px
+	+clr
+	.logos__title
+		float: left
+		+s(logo-title)
+	.logos__est
+		float: right
+		+s(est-c)
 
+.title
+	margin-bottom: 10px
+	+fm
+	font-size: 16px
+	color: $black 
+	&.title_2
+		margin-bottom: 5px
+		font-size: 14px
 
+.feedback
+	margin-bottom: 40px
+	.feedback_l
+		margin-bottom: 10px
+	.feedback__col
+		float: left
+		width: 170px
+		&:first-child
+			width: 310px
+			margin-right: 20px 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.check
+	position: relative
+	display: block
+	margin-bottom: 5px
+	padding-left: 20px
+	+nosel
+	cursor: pointer
+	input
+		position: absolute
+		top: 0
+		left: 0
+		visibility: hidden
+		&:checked + .check__in
+			&:before
+				background: $red
+				box-shadow: 0 0 0 2px #fff inset 
+	.check__in
+		+fm
+		font-size: 14px
+		font-style: italic
+		&:before
+			content: ""
+			position: absolute
+			top: 3px
+			left: 0
+			width: 12px
+			height: 12px
+			border: 1px solid #a8b1c0
+	.check__link
+		display: block
+		font-size: 10px
+		a
+			color: #666766 
 
 
 
