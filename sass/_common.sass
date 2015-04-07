@@ -70,8 +70,8 @@ $hover: rgb(184, 54, 75)
 $cl: #666766
 
 body
-	min-width: 1024px
-	background: #FFF 
+	min-width: 380px
+	background: $bg 
 	+f
 	font-size: 12px 
 	line-height: 1.3
@@ -79,10 +79,19 @@ body
 a
 	text-decoration: none
 
+=m
+	@media only screen and (max-width: 1023px)
+		@content
+
 // common blocks      
 .wrap
 	min-height: 100vh
 	padding: 30px
+	background: #FFF 
+	+m
+		width: 340px
+		margin: 0 auto
+		padding: 20px 0
 
 .border
 	position: fixed
@@ -92,9 +101,13 @@ a
 	&.border_left,
 	&.border_right
 		width: 30px
+		+m
+			width: 20px
 	&.border_top,
 	&.border_bottom
 		height: 30px
+		+m
+			height: 20px
 	&.border_top,
 	&.border_left,
 	&.border_right
@@ -116,7 +129,10 @@ a
 .main
 	position: relative
 	height: calc(100vh - 60px)
+	min-height: 530px
 	background: $bg 
+	+m
+		height: calc(100vh - 40px)
 	.main__header
 		position: absolute
 		top: 0
@@ -124,10 +140,15 @@ a
 		right: 0
 		padding: 20px 25px 0 30px
 		z-index: 4 
+		+m
+			padding: 30px 10px
+			+g(rgba(0,0,0,.9), rgba(0,0,0,0))
 	.main__slider,
 	.main__slide
 		width: 100%
-		height: 100%
+		height: calc(100vh - 60px)
+		+m
+			height: calc(100vh - 40px)
 	.main__slider
 		z-index: 2 
 	.main__slide
@@ -140,7 +161,16 @@ a
 	.main__slide_third
 		background-image: url(../img/bg3.jpg)
 	.main__links
-		float: right
+		position: absolute
+		top: 25px
+		right: 25px
+		z-index: 6
+		+m
+			top: auto
+			right: auto
+			left: 10px
+			bottom: 10px
+			font-size: 10px
 		li
 			float: left
 			margin-left: 15px
@@ -161,12 +191,18 @@ a
 		float: left
 		margin-bottom: 32px
 		+s(logo)
+		+m
+			float: none
+			margin: 0 auto 25px
+			+s(logo-s)
 	.main__nav
 		padding: 1px 0
+		font-size: 0
 		clear: both
-		overflow: hidden
+		+m
+			text-align: center
 		a
-			float: left
+			display: inline-block
 			min-width: 135px
 			margin-left: 10px
 			padding: 6px
@@ -176,6 +212,11 @@ a
 			color: #FFF
 			text-transform: uppercase
 			text-align: center
+			vertical-align: top
+			+m
+				min-width: 90px
+				padding: 4px
+				font-size: 14px
 			&:first-child
 				margin: 0
 			&:hover
@@ -187,7 +228,11 @@ a
 	right: 25px
 	bottom: 25px
 	+s(est)
-	z-index: 4		
+	z-index: 4
+	+m
+		right: 10px
+		bottom: 10px
+		+s(est-s)	
 
 .center
 	max-width: 940px
@@ -204,12 +249,16 @@ a
 	margin: 0 15px
 	&.col_w150
 		width: 150px
+	&.col_w220
+		width: 220px
 	&.col_w280
 		width: 280px
 	&.col_w370
 		width: 370px
 	&.col_w380
 		width: 380px
+	&.col_w470	
+		width: 470px
 	&.col_w490	
 		width: 490px
 	&.col_w500	
@@ -331,7 +380,9 @@ a
 						background: $hover
 
 .in
+	position: relative
 	padding-top: 109px
+	z-index: 2 
 	&.in_pt35
 		padding-top: 35px
 
@@ -434,8 +485,10 @@ a
 		vertical-align: middle
 
 .footer
+	position: relative
 	padding: 30px 0 20px
 	background: #F0F0F0 
+	z-index: 4 
 	.footer__logo
 		display: block
 		margin-bottom: 25px
@@ -515,6 +568,8 @@ a
 		width: 310px
 	&.field_right
 		text-align: right
+	&.field_center
+		text-align: center
 	&.field_mb0
 		margin-bottom: 0
 	&.field_mb20
@@ -560,6 +615,24 @@ a
 		display: block
 		margin-bottom: 10px
 
+.btn-row
+	margin-bottom: 30px
+	font-size: 0
+	.btn
+		margin-right: 20px
+
+a
+	&.btn
+		display: inline-block
+		line-height: 31px
+		text-align: center
+	&.btn_big
+		line-height: 40px
+	&.btn_small
+		line-height: 20px
+	&.btn_gray
+		line-height: 27px
+
 .btn
 	min-width: 80px
 	padding: 0 10px
@@ -576,12 +649,21 @@ a
 	&.btn_small
 		height: 20px
 		font-size: 10px
+	&.btn_gray
+		min-width: 140px
+		background: none
+		border: 2px solid #bdc5d0
+		color: $black
+		&:hover
+			background: none
+			border-color: $red 
 	&:hover
 		background: $hover 
 
 .input,
 .textarea
 	width: 100%
+	background: none 
 	border: 1px solid #a8b1c0
 	+fm
 	font-size: 14px
@@ -607,7 +689,6 @@ a
 		height: 31px
 		padding: 0 20px 0 10px
 		border: 1px solid #a8b1c0
-		background: #FFF 
 		+fm
 		font-size: 14px
 		color: #A8B1C0
@@ -628,6 +709,7 @@ a
 		height: 100%
 		-webkit-appearance: none
 		opacity: 0 
+		cursor: pointer
 		z-index: 4 
 
 .social
@@ -666,7 +748,6 @@ a
 			span
 				height: auto
 				text-align: left
-		
 	.form
 		padding: 15px 20px 20px
 		background: #FAFAFA 
@@ -690,6 +771,18 @@ a
 
 .form
 	margin-bottom: 30px
+	&.form_gray
+		background: #ecedf1
+		padding: 20px  
+	.form__title
+		margin-bottom: 5px
+		font-size: 30px
+		text-align: center
+	.form__text
+		margin-bottom: 10px
+		+fm
+		text-transform: uppercase
+		text-align: center
 
 .pic
 	margin-bottom: 30px
@@ -749,9 +842,9 @@ a
 		top: 0
 		left: 0
 		right: 0
-		height: 640px 
-		background: url(../img/bg.jpg) no-repeat 50% 0
-		background-size: cover
+		background-image: url(../img/bg.jpg)
+		background-attachment: fixed
+		background-position: 50% 0
 		z-index: 2 
 	>.center
 		position: relative
@@ -848,30 +941,54 @@ a
 
 .story
 	position: relative
-	margin-bottom: 40px
-	padding: 10px 0 0 50px
+	padding: 10px 0 40px
+	overflow: hidden
+	&:after
+		content: ""
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
+		height: 40px
+		background: #FFF
+		z-index: 6  
 	.story__list
 		position: relative
 		z-index: 4 
 	.story__item
-		position: relative
-		margin-bottom: 30px
 		&:last-child
-			&:before
-				content: ""
-				position: absolute
-				top: 0
-				left: -44px
-				bottom: -30px
-				width: 8px
-				background: #FFF 
-	.story__year
+			.story__in
+				&:before
+					background: #FFF 
+		&.is-fixed
+			.story__in
+				position: fixed
+				top: 170px
+				left: 50%
+				width: 900px
+				margin-left: -450px 
+	.story__in
 		position: relative
-		padding: 9px 33px
+		padding: 0 0 30px 50px
+		background: #FFF 
+		&:before
+			content: ""
+			position: absolute
+			top: 0
+			left: 6px
+			bottom: 0
+			width: 8px 
+			background: #ecedf1 
+			border-radius: 4px
+	.story__year
+		display: block
+		position: relative
+		padding: 0 25px
 		background: $red 
 		+fm
 		font-size: 40px
 		color: #FFF 
+		line-height: 70px
 		&:before,
 		&:after
 			content: ""
@@ -906,16 +1023,11 @@ a
 		font-size: 24px
 		font-style: italic
 		color: $black 
-	.story__line
-		position: absolute
-		top: 0
-		left: 6px
-		bottom: 0
-		width: 8px 
-		background: #ecedf1 
-		border-radius: 4px
-		z-index: 2 
-
+	.story__above
+		position: relative
+		background: #FFF
+		z-index: 4  
+		
 .gallery
 	overflow: hidden
 	.gallery__list
@@ -1032,7 +1144,11 @@ a
 		.title_2
 			margin: -3px 0 5px
 		.btn
+			display: block
+			width: 100%
 			margin: 0
+			& + .btn
+				margin-top: 10px
 	.el__list	
 		margin-right: -50px
 	.el__item
@@ -1068,12 +1184,29 @@ a
 	margin-bottom: 30px
 	padding-bottom: 7px
 	border-bottom: 3px solid $red
+	&.filter_projects
+		margin-bottom: 40px
+		border-color: #c8cfd7
+		>.field
+			margin-bottom: -15px
+		.filter__row
+			.field__label
+				font-size: 14px
+				text-transform: uppercase
+				color: $black
+		.filter__cell
+			vertical-align: bottom
+		.btn
+			display: block
+			& + .btn
+				margin-top: 10px
 	.filter__row
 		margin-bottom: 20px
-		+clr
+		font-size: 0
 	.filter__cell
-		float: left
+		display: inline-block
 		margin-left: 20px
+		vertical-align: top
 		&:first-child
 			margin: 0
 	.filter__cell_btn

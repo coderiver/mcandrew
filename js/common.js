@@ -11,7 +11,7 @@ head.ready(function() {
 				autoplay: true,
 				autoplaySpeed: 3000,
 				arrows: false,
-				slides: '.sl__item',
+				slides: '.js-sl-item',
 				infinite: true,
 				speed: 500,
 				fade: true,
@@ -51,5 +51,56 @@ head.ready(function() {
 		});
 	};
 }());
+
+// story
+(function () {
+	var el = $('.js-story');
+	if (el.length) {
+		// height blocks
+		el.each(function () {
+			var elThis = $(this),
+				elHeight = elThis.height();
+			elThis.height(elHeight);
+		});
+		// scroll
+		$(window).scroll(function () {
+			var scrTop = $(document).scrollTop(),
+				topValue = 170,
+				counter = 70;
+			el.each(function (i) {
+				var elThis = $(this),
+					elTop = elThis.offset().top - topValue,
+					// koef = 0;
+					koef = i * counter;
+				if (scrTop >= elTop - koef) {
+					elThis.addClass('is-fixed');
+					elThis.find('>div').css('top', topValue + koef);
+				}
+				else {
+					elThis.removeClass('is-fixed');
+					elThis.find('>div').css('top', 'auto');
+				}
+			});
+		});
+	};
+}());
+
+// paralax
+(function () {
+	var bg = $('.js-bg');
+	if (bg.length) {
+		var bgTop = bg.offset().top,
+			content = $('.js-content'),
+			contentHeight = content.height(),
+			padding = 100;
+		bg.height(contentHeight + padding);
+		$(window).scroll(function () {
+			var scrTop = $(document).scrollTop(),
+				currentPos = scrTop/2;
+			bg.css('background-position', '50% -'+currentPos+'px')
+		});
+	};
+}());
+
 	
 });
