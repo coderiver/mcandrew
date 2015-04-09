@@ -70,8 +70,8 @@ head.ready(function() {
 			el.each(function (i) {
 				var elThis = $(this),
 					elTop = elThis.offset().top - topValue,
-					// koef = 0;
-					koef = i * counter;
+					koef = 0;
+					// koef = i * counter;
 				if (scrTop >= elTop - koef) {
 					elThis.addClass('is-fixed');
 					elThis.find('>div').css('top', topValue + koef);

@@ -236,6 +236,7 @@ a.btn_small { line-height: 20px; }
 a.btn_gray { line-height: 27px; }
 
 .btn { min-width: 80px; padding: 0 10px; height: 31px; background: #d63b55; font-family: "Lato-Semibold", Arial, sans-serif; font-size: 14px; color: white; text-transform: uppercase; }
+.btn.btn_w130 { min-width: 130px; }
 .btn.btn_big { min-width: 240px; height: 40px; font-size: 18px; }
 .btn.btn_small { height: 20px; font-size: 10px; }
 .btn.btn_gray { min-width: 140px; background: none; border: 2px solid #bdc5d0; color: #1b272b; }
@@ -263,22 +264,22 @@ a.btn_gray { line-height: 27px; }
 .social .social__tw { background: url('../img/icons-s4565069138.png') 0 -629px no-repeat; width: 30px; height: 30px; }
 .social .social__in { background: url('../img/icons-s4565069138.png') 0 -761px no-repeat; width: 30px; height: 30px; }
 
-.login { margin: 0 -15px 10px; font-size: 0; }
-.login .login__item { display: inline-block; width: 33.33%; margin-bottom: 30px; padding: 0 15px; vertical-align: top; }
+.login { margin: 0 -15px 10px; font-size: 0; text-align: center; }
+.login .login__item { display: inline-block; width: 33.33%; margin-bottom: 30px; padding: 0 15px; text-align: left; vertical-align: top; }
 .login .login__item .form__title { margin-bottom: 15px; }
 .login .login__item .form__title span { height: 48px; text-align: center; }
 .login .login__item_wide { width: 100%; }
 .login .login__item_wide .form__title { margin-bottom: 0; }
 .login .login__item_wide .form__title span { height: auto; text-align: left; }
-.login .form { padding: 15px 20px 20px; background: #fafafa; border: 3px solid #a8b2c0; }
+.login .form { margin: 0; padding: 15px 20px 20px; background: #fafafa; border: 3px solid #a8b2c0; }
 .login .form__title { display: table; width: 100%; font-family: "Lato-Bold", Arial, sans-serif; font-size: 20px; color: #a8b2c0; text-transform: uppercase; line-height: 1; }
 .login .form__title span { display: table-cell; vertical-align: middle; }
 .login .field__label { margin-bottom: 5px; font-size: 14px; font-style: italic; color: #a8b2c0; }
 
 .form { margin-bottom: 30px; }
 .form.form_gray { background: #ecedf1; padding: 20px; }
-.form .form__title { margin-bottom: 5px; font-size: 30px; text-align: center; }
-.form .form__text { margin-bottom: 10px; font-family: "Lato-Medium", Arial, sans-serif; text-transform: uppercase; text-align: center; }
+.form.form_gray .form__title { margin-bottom: 5px; font-size: 30px; text-align: center; }
+.form.form_gray .form__text { margin-bottom: 10px; font-family: "Lato-Medium", Arial, sans-serif; text-transform: uppercase; text-align: center; }
 
 .pic { margin-bottom: 30px; font-size: 0; }
 
@@ -390,7 +391,7 @@ a.btn_gray { line-height: 27px; }
 .el .el__list { margin-right: -50px; }
 .el .el__item { display: inline-block; width: 340px; margin: 0 40px 30px 0; vertical-align: top; }
 .el .el__pic { position: relative; margin-bottom: 15px; }
-.el .el__pic .btn { position: absolute; right: 0; bottom: 0; min-width: 30px; height: 30px; padding: 0; font-size: 0; }
+.el .el__pic .btn { position: absolute; right: 0; bottom: 0; width: 30px; height: 30px; min-width: 30px; padding: 0; font-size: 0; }
 .el .el__text { margin-bottom: 10px; font-family: "Lato-Medium", Arial, sans-serif; font-size: 14px; color: #1b272b; }
 .el .el__in { display: table; }
 .el .title_2 { font-size: 18px; }
@@ -425,6 +426,10 @@ a.btn_gray { line-height: 27px; }
 .slider .slick-prev:before { background: url('../img/icons-s4565069138.png') 0 -957px no-repeat; width: 9px; height: 17px; }
 .slider .slick-next { right: 0; }
 .slider .slick-next:before { background: url('../img/icons-s4565069138.png') 0 -984px no-repeat; width: 9px; height: 17px; }
+
+.download { margin-bottom: 20px; font-size: 0; }
+.download a { display: inline-block; margin: 0 10px 10px 0; padding: 5px 15px; border: 1px solid #a8b2c0; font-size: 14px; color: #a8b2c0; text-transform: uppercase; vertical-align: top; }
+.download a:hover { border-color: #d63b55; }
 
 .slick-slider { position: relative; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -ms-touch-action: pan-y; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
 

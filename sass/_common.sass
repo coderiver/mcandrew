@@ -68,6 +68,7 @@ $red: #D63B55
 $black: #1b272b
 $hover: rgb(184, 54, 75)
 $cl: #666766
+$gray: #A8B2C0
 
 body
 	min-width: 380px
@@ -525,7 +526,7 @@ a
 			display: block
 			padding: 4px 0
 			font-size: 14px
-			color: #A8B2C0 
+			color: $gray 
 	.form
 		margin: 0
 
@@ -583,7 +584,7 @@ a
 		+fm
 		font-size: 10px
 		font-style: italic
-		color: #A8B2C0  
+		color: $gray  
 	.field__in
 		+clr
 	.field__cell
@@ -642,6 +643,8 @@ a
 	font-size: 14px
 	color: #fff  
 	text-transform: uppercase
+	&.btn_w130
+		min-width: 130px
 	&.btn_big
 		min-width: 240px
 		height: 40px
@@ -730,11 +733,13 @@ a
 .login
 	margin: 0 -15px 10px
 	font-size: 0
+	text-align: center
 	.login__item
 		display: inline-block
 		width: 33.33%
 		margin-bottom: 30px
 		padding: 0 15px
+		text-align: left
 		vertical-align: top 
 		.form__title
 			margin-bottom: 15px
@@ -749,15 +754,16 @@ a
 				height: auto
 				text-align: left
 	.form
+		margin: 0 
 		padding: 15px 20px 20px
 		background: #FAFAFA 
-		border: 3px solid #a8b2c0
+		border: 3px solid $gray
 	.form__title
 		display: table
 		width: 100%
 		+fb
 		font-size: 20px
-		color: #A8B2C0
+		color: $gray
 		text-transform: uppercase
 		line-height: 1
 		span
@@ -767,22 +773,22 @@ a
 		margin-bottom: 5px
 		font-size: 14px
 		font-style: italic
-		color: #A8B2C0 
+		color: $gray 
 
 .form
 	margin-bottom: 30px
 	&.form_gray
 		background: #ecedf1
 		padding: 20px  
-	.form__title
-		margin-bottom: 5px
-		font-size: 30px
-		text-align: center
-	.form__text
-		margin-bottom: 10px
-		+fm
-		text-transform: uppercase
-		text-align: center
+		.form__title
+			margin-bottom: 5px
+			font-size: 30px
+			text-align: center
+		.form__text
+			margin-bottom: 10px
+			+fm
+			text-transform: uppercase
+			text-align: center
 
 .pic
 	margin-bottom: 30px
@@ -1016,7 +1022,7 @@ a
 		&:first-child
 			width: 230px
 			padding: 0 30px 0 0
-			border-right: 1px solid #a8b2c0
+			border-right: 1px solid $gray
 	.story__title
 		text-align: right
 		+fl
@@ -1163,8 +1169,9 @@ a
 			position: absolute
 			right: 0
 			bottom: 0
-			min-width: 30px
+			width: 30px
 			height: 30px
+			min-width: 30px
 			padding: 0
 			font-size: 0
 	.el__text
@@ -1267,6 +1274,20 @@ a
 		&:before
 			+s(arr-right)
 
+.download
+	margin-bottom: 20px
+	font-size: 0
+	a
+		display: inline-block
+		margin: 0 10px 10px 0
+		padding: 5px 15px
+		border: 1px solid $gray
+		font-size: 14px
+		color: $gray
+		text-transform: uppercase 
+		vertical-align: top
+		&:hover
+			border-color: $red
 
 
 
