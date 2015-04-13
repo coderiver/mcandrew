@@ -1,5 +1,19 @@
 head.ready(function() {
 
+// nav
+(function () {
+	var btnNav = $('.js-btn-nav'),
+		nav = $('.js-nav');
+	btnNav.on('click', function () {
+		nav.toggle();
+		return false;
+	});
+	nav.find('ul>li>a').on('click', function () {
+		$(this).next().toggle();
+		return false;
+	});
+}());
+
 // slider
 (function () {
 	var sl = $('.js-sl');

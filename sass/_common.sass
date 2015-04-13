@@ -86,47 +86,33 @@ a
 
 // common blocks      
 .wrap
+	min-width: 380px
 	min-height: 100vh
-	padding: 30px
+	padding: 30px 0
+	border: 1px solid $bg
+	border-width: 0 30px
 	background: #FFF 
 	+m
-		width: 340px
-		margin: 0 auto
 		padding: 20px 0
+		border-width: 0 20px
 
 .border
 	position: fixed
 	background: $bg 
 	+gpu
 	z-index: 100 
-	&.border_left,
-	&.border_right
-		width: 30px
-		+m
-			width: 20px
 	&.border_top,
 	&.border_bottom
+		left: 0
+		right: 0
 		height: 30px
 		+m
 			height: 20px
-	&.border_top,
-	&.border_left,
-	&.border_right
+	&.border_top
 		top: 0
-	&.border_left,
-	&.border_right,
 	&.border_bottom
 		bottom: 0
-	&.border_top,
-	&.border_left,
-	&.border_bottom
-		left: 0
-	&.border_top,
-	&.border_right,
-	&.border_bottom
-		right: 0
 
-	
 .main
 	position: relative
 	height: calc(100vh - 60px)
@@ -148,6 +134,7 @@ a
 	.main__slide
 		width: 100%
 		height: calc(100vh - 60px)
+		min-height: 530px
 		+m
 			height: calc(100vh - 40px)
 	.main__slider
@@ -244,30 +231,55 @@ a
 	+clr
 	&.l_section
 		margin: 0 -15px
+		+m
+			margin: 0
 
 .col
 	float: left
 	margin: 0 15px
+	+m
+		float: none
+		margin: 0 0 20px
 	&.col_w150
 		width: 150px
+		+m
+			width: 100%
 	&.col_w220
 		width: 220px
+		+m
+			width: 100%
 	&.col_w280
 		width: 280px
+		+m
+			width: 100%
 	&.col_w370
 		width: 370px
+		+m
+			width: 100%
 	&.col_w380
 		width: 380px
+		+m
+			width: 100%
 	&.col_w470	
 		width: 470px
+		+m
+			width: 100%
 	&.col_w490	
 		width: 490px
+		+m
+			width: 100%
 	&.col_w500	
 		width: 500px
+		+m
+			width: 100%
 	&.col_w590	
 		width: 590px
+		+m
+			width: 100%
 	&.col_w720	
 		width: 720px
+		+m
+			width: 100%
 
 .header
 	position: fixed
@@ -275,20 +287,32 @@ a
 	left: 30px
 	right: 30px
 	height: 109px
-	padding: 25px 0 0 0
+	padding-top: 25px
 	background: $red 
 	+gpu
 	z-index: 99 
+	+m
+		position: relative
+		top: 0
+		left: 0
+		right: 0
+		height: 50px
+		padding-top: 10px
 	.header__logo 
 		float: left
 		margin-top: 5px
 		+s(logo-s)
+		+m
+			margin: 0
+			+s(logo-ts)
 	.header__right
 		float: right
 	.header__contacts
 		margin-bottom: 17px
 		font-size: 0
 		text-align: right
+		+m
+			display: none
 		li
 			display: inline-block
 			margin-left: 30px
@@ -331,7 +355,20 @@ a
 .icon-car
 	+s(car)
 
+.btn-nav
+	display: none
+	float: right
+	+s(btn-nav)
+	+m
+		display: block
+
 .nav
+	+m
+		display: none
+		position: absolute
+		top: 50px
+		left: 0
+		right: 0
 	.nav__list
 		text-align: right
 		font-size: 0
@@ -343,12 +380,18 @@ a
 			vertical-align: top
 			&:first-child
 				margin: 0
+				+m
+					display: none
+			+m
+				display: block
+				margin: 0
+				padding: 0
 			&:hover
 				ul
 					opacity: 1
 					visibility: visible
 			>a
-				display: inline-block
+				display: block
 				min-width: 120px
 				padding: 3px 5px
 				border: 1px solid #fff
@@ -357,6 +400,11 @@ a
 				text-transform: uppercase
 				vertical-align: top
 				text-align: center
+				+m
+					width: 100%
+					background: $hover
+					border: none
+					
 			ul
 				position: absolute
 				top: 100%
@@ -366,6 +414,12 @@ a
 				opacity: 0
 				visibility: hidden
 				+tr(all .2s) 
+				+m
+					display: none
+					position: relative
+					top: 0
+					opacity: 1 
+					visibility: visible
 				li
 					&.is-active
 						a
@@ -384,27 +438,46 @@ a
 	position: relative
 	padding-top: 109px
 	z-index: 2 
+	+m
+		padding: 0
 	&.in_pt35
 		padding-top: 35px
 
 .sl
-	height: 300px
 	margin-bottom: 60px
-	background: $bg 
-	overflow: hidden
-	z-index: 2 
+	+m
+		position: relative
+		margin-bottom: 20px
+		padding-bottom: 31%
 	&.sl_mb0
 		margin-bottom: 0
+	.sl__in
+		height: 300px
+		background: $bg 
+		overflow: hidden
+		z-index: 2 
+		+m
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			height: auto
 	.sl__item
 		width: 100%
-		height: 300px
-		background-position: 50% 0 
+		background-size: auto 100%
+		background-position: 50% 0
+	.slick-list,
+	.slick-track
+		height: 100%
 		
 .content
 	margin-bottom: 40px
 	+fl
 	font-size: 15px
 	line-height: 1.6
+	+m
+		margin-bottom: 20px
 	h1,
 	h2,
 	h3,
@@ -424,6 +497,8 @@ a
 		color: $red
 		font-size: 40px
 		line-height: 1  
+		+m
+			font-size: 30px
 		& + h2
 			margin-top: -15px
 	h2
@@ -431,6 +506,8 @@ a
 		font-size: 28px
 		line-height: 1.1
 		color: $black
+		+m
+			font-size: 18px
 	h4
 		margin-bottom: 5px
 	p, ul
@@ -490,10 +567,15 @@ a
 	padding: 30px 0 20px
 	background: #F0F0F0 
 	z-index: 4 
+	+m
+		padding: 20px 0
 	.footer__logo
 		display: block
 		margin-bottom: 25px
 		+s(logo-c)
+		+m
+			margin: 0 auto 15px
+			+s(logo-c-s)
 	.footer__form-title
 		margin-bottom: 5px
 		+fm
@@ -502,9 +584,15 @@ a
 	.footer__right
 		float: right
 		width: 320px
+		+m
+			float: none
+			width: 100%
 	.footer__left
 		float: left
 		width: 560px
+		+m
+			float: none
+			width: 100%
 	.footer__nav
 		margin-bottom: 10px
 		font-size: 0
@@ -513,12 +601,18 @@ a
 			width: 25%
 			padding-right: 10px
 			vertical-align: top
+			+m
+				padding: 0 0 0 5px
+				&:first-child
+					padding: 0
 		li
 			border-bottom: 2px solid #dbdee3
 			&:first-child
 				border-color: #e395a2
 				+fm
 				font-size: 16px
+				+m
+					font-size: 12px
 				a
 					padding: 0 0 4px
 					color: $black 
@@ -527,6 +621,9 @@ a
 			padding: 4px 0
 			font-size: 14px
 			color: $gray 
+			+m
+				padding: 2px 0
+				font-size: 10px
 	.form
 		margin: 0
 
@@ -535,22 +632,38 @@ a
 	&.fieldset_row
 		.field
 			margin: 0 0 0 20px
+			padding: 0
 			vertical-align: bottom
+			+m
+				margin: 0 0 10px
 			&:first-child
 				margin: 0
+				+m
+					margin: 0 0 10px
+			&:last-child
+				+m
+					margin: 0
 	.field
 		display: inline-block
-		margin-left: 10px
 		vertical-align: top
+		padding-left: 10px
 		&:first-child
-			margin: 0
+			padding: 0
 
 .field
 	margin-bottom: 10px
+	&.field_w60p
+		width: 60%
+	&.field_w40p
+		width: 40%
+
+
 	&.field_w60
 		width: 60px
 	&.field_w80
 		width: 80px
+		+m
+			width: 100%
 	&.field_w120
 		width: 120px
 	&.field_w130
@@ -561,6 +674,8 @@ a
 		width: 200px
 	&.field_w238
 		width: 238px
+		+m
+			width: 100%
 	&.field_w240
 		width: 240px
 	&.field_w280
@@ -569,6 +684,8 @@ a
 		width: 310px
 	&.field_right
 		text-align: right
+		+m
+			text-align: center
 	&.field_center
 		text-align: center
 	&.field_mb0
@@ -717,6 +834,8 @@ a
 
 .social
 	font-size: 0
+	+m
+		text-align: center
 	a
 		display: inline-block
 		margin-left: 10px
@@ -741,6 +860,9 @@ a
 		padding: 0 15px
 		text-align: left
 		vertical-align: top 
+		+m
+			width: 100%
+			margin-bottom: 20px
 		.form__title
 			margin-bottom: 15px
 			span
@@ -750,9 +872,14 @@ a
 		width: 100%
 		.form__title
 			margin-bottom: 0
+			+m
+				margin-bottom: 15px
 			span
 				height: auto
 				text-align: left
+				+m
+					height: 48px
+					text-align: center
 	.form
 		margin: 0 
 		padding: 15px 20px 20px
@@ -793,9 +920,12 @@ a
 .pic
 	margin-bottom: 30px
 	font-size: 0
+	img
+		max-width: 100%
 
 .contacts
 	margin-bottom: 30px
+	+clr
 	.contacts__item
 		float: left
 		margin: 0 30px 10px 0
