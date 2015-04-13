@@ -14,6 +14,16 @@ head.ready(function() {
 	});
 }());
 
+// menu
+(function () {
+	var btnMenu = $('.js-btn-menu'),
+		menu = $('.js-menu');
+	btnMenu.on('click', function () {
+		menu.toggle();
+		return false;
+	});
+}());
+
 // slider
 (function () {
 	var sl = $('.js-sl');
@@ -103,11 +113,18 @@ head.ready(function() {
 (function () {
 	var bg = $('.js-bg');
 	if (bg.length) {
-		var bgTop = bg.offset().top,
-			content = $('.js-content'),
-			contentHeight = content.height(),
-			padding = 100;
-		bg.height(contentHeight + padding);
+		function bgHeight () {
+			var bgTop = bg.offset().top,
+				content = $('.js-content'),
+				contentHeight = content.height(),
+				contentTop = content.offset().top,
+				padding = 40;
+			bg.height(contentTop - bgTop + contentHeight + padding);
+		}
+		bgHeight();
+		$(window).resize(function () {
+			bgHeight();
+		});
 		$(window).scroll(function () {
 			var scrTop = $(document).scrollTop(),
 				currentPos = scrTop/2;

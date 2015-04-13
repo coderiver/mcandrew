@@ -23,8 +23,9 @@
 					<li><a href="tel:+61732668555"><i class="icon icon-phone"></i><span>+61 (7) 3266 8555</span></a></li>
 					<li><a href="mailto:bob@google.com"><i class="icon icon-mail"></i><span>CONTACT US</span></a></li>
 				</ul>
+				<button class="btn-nav js-btn-nav"></button>
 				<!-- nav -->
-				<div class="nav">
+				<div class="nav js-nav">
 					<ul class="nav__list">
 						<li>
 							<a href="#">Home</a>
@@ -41,7 +42,7 @@
 							<a href="#">Rental</a>
 							<ul>
 								<li><a href="#">RENT</a></li>
-								<li class="is-active"><a href="#">TENANTS & LANDLORDS</a></li>
+								<li><a href="#">TENANTS & LANDLORDS</a></li>
 								<li><a href="#">CONTACT US</a></li>
 							</ul>
 						</li>
@@ -49,7 +50,7 @@
 							<a href="#">About us</a>
 							<ul>
 								<li><a href="#">our story</a></li>
-								<li class="is-active"><a href="#">our people</a></li>
+								<li><a href="#">our people</a></li>
 								<li><a href="#">our services</a></li>
 								<li><a href="#">faq's</a></li>
 								<li><a href="#">contact us</a></li>
@@ -63,14 +64,16 @@
 	<!-- in -->
 	<div class="in">
 		<!-- sl -->
-		<div class="sl js-sl">
-			<div class="sl__item js-sl-item" style="background-image: url(img/sl1.jpg)"></div>
-			<div class="sl__item js-sl-item" style="background-image: url(img/sl2.jpg)"></div>
-			<div class="sl__item js-sl-item" style="background-image: url(img/sl3.jpg)"></div>
-			<div class="sl__item js-sl-item" style="background-image: url(img/sl4.jpg)"></div>
-			<div class="sl__item js-sl-item" style="background-image: url(img/sl5.jpg)"></div>
-			<div class="sl__item js-sl-item" style="background-image: url(img/sl6.jpg)"></div>
-			<div class="sl__item js-sl-item" style="background-image: url(img/sl7.jpg)"></div>
+		<div class="sl">
+			<div class="sl__in js-sl">
+				<div class="sl__item js-sl-item" style="background-image: url(img/sl1.jpg)"></div>
+				<div class="sl__item js-sl-item" style="background-image: url(img/sl2.jpg)"></div>
+				<div class="sl__item js-sl-item" style="background-image: url(img/sl3.jpg)"></div>
+				<div class="sl__item js-sl-item" style="background-image: url(img/sl4.jpg)"></div>
+				<div class="sl__item js-sl-item" style="background-image: url(img/sl5.jpg)"></div>
+				<div class="sl__item js-sl-item" style="background-image: url(img/sl6.jpg)"></div>
+				<div class="sl__item js-sl-item" style="background-image: url(img/sl7.jpg)"></div>
+			</div>
 		</div>
 		<!-- center -->
 		<div class="center">
@@ -223,12 +226,6 @@
 						<li><a href="#">FAQ’s</a></li>
 					</ul>
 				</nav>
-				<!-- social -->
-				<div class="social">
-					<a class="social__fb" href="#"></a>
-					<a class="social__tw" href="#"></a>
-					<a class="social__in" href="#"></a>
-				</div>
 			</div>
 			<div class="footer__right">
 				<div class="footer__form">
@@ -246,11 +243,11 @@
 						<!-- fieldset -->
 						<div class="fieldset">
 							<!-- field -->
-							<div class="field field_w190">
+							<div class="field field_w60p">
 								<input class="input" type="text" placeholder="Phone">
 							</div>
 							<!-- field -->
-							<div class="field field_w120">
+							<div class="field field_w40p">
 								<input class="input" type="text" placeholder="Postcode">
 							</div>
 						</div>
@@ -265,12 +262,16 @@
 					</div>
 				</div>
 			</div>
+			<!-- social -->
+			<div class="social">
+				<a class="social__fb" href="#"></a>
+				<a class="social__tw" href="#"></a>
+				<a class="social__in" href="#"></a>
+			</div>
 		</div>
 	</footer>
 	<!-- border -->
 	<div class="border border_top"></div>
-	<div class="border border_left"></div>
-	<div class="border border_right"></div>
 	<div class="border border_bottom"></div>
 </div>
 <!-- load scripts -->

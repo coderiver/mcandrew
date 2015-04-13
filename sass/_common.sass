@@ -541,11 +541,15 @@ a
 	font-weight: 400 
 	line-height: 1
 	color: $red  
+	+m
+		font-size: 30px
 	& + &.h_2
 		margin-top: -15px
 	&.h_2
 		font-size: 28px
 		color: $cl 
+		+m
+			font-size: 18px
 	&.h_3
 		margin-bottom: 20px
 		+fb
@@ -652,12 +656,10 @@ a
 
 .field
 	margin-bottom: 10px
-	&.field_w60p
-		width: 60%
 	&.field_w40p
 		width: 40%
-
-
+	&.field_w60p
+		width: 60%
 	&.field_w60
 		width: 60px
 	&.field_w80
@@ -666,22 +668,12 @@ a
 			width: 100%
 	&.field_w120
 		width: 120px
-	&.field_w130
-		width: 130px
 	&.field_w190
 		width: 190px
-	&.field_w200
-		width: 200px
 	&.field_w238
 		width: 238px
 		+m
 			width: 100%
-	&.field_w240
-		width: 240px
-	&.field_w280
-		width: 280px
-	&.field_w310
-		width: 310px
 	&.field_right
 		text-align: right
 		+m
@@ -694,21 +686,23 @@ a
 		margin-bottom: 20px
 	&.field_types
 		.field__cell
-			margin-left: 10px
+			padding-left: 10px
 			&:first-child
-				margin: 0
+				padding: 0
 	>a
 		+fm
 		font-size: 10px
 		font-style: italic
 		color: $gray  
 	.field__in
-		+clr
+		display: table
+		width: 100%
+		table-layout: fixed
 	.field__cell
-		float: left
-		margin-left: 20px
+		display: table-cell
+		padding-left: 10px
 		&:first-child
-			margin: 0
+			padding: 0 10px 0 0
 	.field__cell_w60
 		width: 60px
 	.field__cell_w130
@@ -920,6 +914,8 @@ a
 .pic
 	margin-bottom: 30px
 	font-size: 0
+	+m
+		margin-bottom: 20px
 	img
 		max-width: 100%
 
@@ -939,9 +935,16 @@ a
 		display: table-cell
 		padding-left: 30px
 		vertical-align: middle
+		+m
+			display: block
+			padding: 20px 0 0 0
 		&:first-child
 			padding: 0 30px 0 0
 			border-right: 1px solid $red
+			+m
+				padding: 0 0 20px
+				border: 1px solid $red
+				border-width: 0 0 1px 
 	.contacts__cell
 		display: table-cell
 		height: 25px
@@ -973,6 +976,8 @@ a
 .bg
 	position: relative
 	padding-top: 60px
+	+m
+		padding-top: 30px
 	.bg__in
 		position: absolute
 		top: 0
@@ -986,8 +991,27 @@ a
 		position: relative
 		z-index: 4 
 
+.btn-menu
+	display: none
+	position: relative
+	width: 100%
+	height: 30px
+	background: $black
+	padding: 0 40px
+	color: #FFF
+	text-transform: uppercase 
+	+m
+		display: block
+	i
+		position: absolute
+		top: 7px
+		left: 7px
+		+s(btn-menu)
+
 .menu
 	margin-bottom: 30px
+	+m
+		display: none
 	>li
 		&.is-active
 			>a
@@ -1024,16 +1048,22 @@ a
 .banner
 	margin-bottom: 30px
 	font-size: 0
+	+m
+		display: none
 
 .team
 	overflow: hidden
 	.team__list
 		margin-right: -50px
+		+m
+			margin: 0 -10px
 	.team__item
 		display: inline-block
 		width: 150px
 		margin: 0 40px 15px 0
 		vertical-align: top
+		+m
+			margin: 0 10px 15px
 	.team__pic	
 		height: 150px
 		margin-bottom: 5px
@@ -1179,12 +1209,18 @@ a
 .logos
 	margin-bottom: 50px
 	+clr
+	+m
+		margin-bottom: 30px
 	.logos__title
 		float: left
 		+s(logo-title)
+		+m
+			+s(logo-title-s)
 	.logos__est
 		float: right
 		+s(est-c)
+		+m
+			+s(est-c-s)
 
 .title
 	margin-bottom: 20px
@@ -1208,9 +1244,14 @@ a
 	.feedback__col
 		float: left
 		width: 170px
+		+m
+			width: 100%
 		&:first-child
 			width: 310px
 			margin-right: 20px 
+			+m
+				width: 100%
+				margin: 0 0 20px
 
 .check
 	position: relative
@@ -1292,9 +1333,14 @@ a
 		width: 340px
 		margin: 0 40px 30px 0
 		vertical-align: top
+		+m
+			width: 100%
+			margin: 0 0 20px
 	.el__pic
 		position: relative
 		margin-bottom: 15px
+		img
+			max-width: 100%
 		.btn
 			position: absolute
 			right: 0
@@ -1346,11 +1392,43 @@ a
 		vertical-align: top
 		&:first-child
 			margin: 0
+			&.filter__cell_w310,
+			&.filter__cell_w200
+				+m
+					margin: 0 0 20px
+	.filter__cell_w130
+		width: 130px
+		+m
+			width: 50%
+			margin: 0
+			padding-left: 10px
+	.filter__cell_w200
+		width: 200px
+	.filter__cell_w240
+		width: 240px
+		+m
+			width: 50%
+			margin: 0
+			padding-right: 10px
+	.filter__cell_w280
+		width: 280px
+		+m
+			width: 100%
+			margin: 0 0 20px
+	.filter__cell_w310
+		width: 310px
+		+m
+			width: 100%
 	.filter__cell_btn
 		float: right
 		width: 130px
 		padding-top: 36px
 		font-size: 0
+		+m
+			float: none
+			width: 100%
+			margin: 0
+			padding: 0
 	.filter__or
 		display: inline-block
 		width: 40px
@@ -1375,15 +1453,18 @@ a
 	.project__cell
 		display: table-cell
 		vertical-align: bottom
+		+m
+			display: block
 		&:first-child
 			width: 310px
 			padding-right: 30px
 			font-size: 0
+			+m
+				width: 100%
+				padding: 0 0 20px
 
 .slider
 	margin-bottom: 30px
-	.slider__item
-		height: 370px
 	.slick-prev,
 	.slick-next
 		position: absolute
@@ -1393,6 +1474,8 @@ a
 		margin: 0
 		background: rgba(#000,.6) 
 		+hide-text
+		+m
+			width: 20px
 		&:before
 			content: ""
 	.slick-prev
