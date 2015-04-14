@@ -542,6 +542,7 @@ a
 	line-height: 1
 	color: $red  
 	+m
+		margin-bottom: 15px
 		font-size: 30px
 	& + &.h_2
 		margin-top: -15px
@@ -668,8 +669,6 @@ a
 			width: 100%
 	&.field_w120
 		width: 120px
-	&.field_w190
-		width: 190px
 	&.field_w238
 		width: 238px
 		+m
@@ -764,7 +763,7 @@ a
 		height: 20px
 		font-size: 10px
 	&.btn_gray
-		min-width: 140px
+		min-width: 130px
 		background: none
 		border: 2px solid #bdc5d0
 		color: $black
@@ -1328,14 +1327,19 @@ a
 				margin-top: 10px
 	.el__list	
 		margin-right: -50px
+		+m
+			margin-right: -20px
 	.el__item
 		display: inline-block
 		width: 340px
 		margin: 0 40px 30px 0
 		vertical-align: top
 		+m
-			width: 100%
-			margin: 0 0 20px
+			width: auto
+			max-width: 340px
+			margin: 0 20px 20px 0
+			padding-bottom: 20px
+			border-bottom: 1px solid #999
 	.el__pic
 		position: relative
 		margin-bottom: 15px
@@ -1372,6 +1376,8 @@ a
 		border-color: #c8cfd7
 		>.field
 			margin-bottom: -15px
+			+m
+				margin-bottom: 10px
 		.filter__row
 			.field__label
 				font-size: 14px
@@ -1379,13 +1385,22 @@ a
 				color: $black
 		.filter__cell
 			vertical-align: bottom
+			+m
+				margin: 0 0 10px
 		.btn
 			display: block
+			+m
+				display: inline-block
+				vertical-align: top
 			& + .btn
 				margin-top: 10px
+				+m
+					margin: 0 0 0 10px
 	.filter__row
 		margin-bottom: 20px
 		font-size: 0
+		+m
+			margin-bottom: 10px
 	.filter__cell
 		display: inline-block
 		margin-left: 20px
@@ -1393,15 +1408,21 @@ a
 		&:first-child
 			margin: 0
 			&.filter__cell_w310,
+			&.filter__cell_w190,
 			&.filter__cell_w200
 				+m
-					margin: 0 0 20px
+					margin: 0 0 10px
 	.filter__cell_w130
 		width: 130px
 		+m
 			width: 50%
 			margin: 0
 			padding-left: 10px
+	.filter__cell_w190
+		width: 190px
+		+m
+			width: 100%
+			margin: 0 0 10px
 	.filter__cell_w200
 		width: 200px
 	.filter__cell_w240
@@ -1414,7 +1435,7 @@ a
 		width: 280px
 		+m
 			width: 100%
-			margin: 0 0 20px
+			margin: 0 0 10px
 	.filter__cell_w310
 		width: 310px
 		+m
