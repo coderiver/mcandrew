@@ -3,18 +3,20 @@ head.ready(function() {
 // nav
 (function () {
 	var btnNav = $('.js-btn-nav'),
-		nav = $('.js-nav'),
-		windowWidth = $(window).width();
-	if (windowWidth <= 1024) {
-		btnNav.on('click', function () {
+		nav = $('.js-nav');
+	btnNav.on('click', function () {
+		if ($(window).width() <= 1024) {
 			nav.toggle();
 			return false;
-		});
-		nav.find('ul>li>a:first-child').on('click', function () {
+		};
+		alert();
+	});
+	nav.find('.nav__list>li>a').on('click', function () {
+		if ($(window).width() <= 1024) {
 			$(this).next().toggle();
 			return false;
-		});
-	};
+		}
+	});
 }());
 
 // menu
