@@ -546,6 +546,8 @@ a
 		font-size: 30px
 	& + &.h_2
 		margin-top: -15px
+		+m
+			margin-top: -5px
 	&.h_2
 		font-size: 28px
 		color: $cl 
@@ -633,46 +635,38 @@ a
 		margin: 0
 
 .fieldset
-	font-size: 0
+	display: table
+	width: 100%
+	margin-bottom: 10px
+	table-layout: fixed
 	&.fieldset_row
+		margin: 0 
 		.field
-			margin: 0 0 0 20px
-			padding: 0
 			vertical-align: bottom
 			+m
-				margin: 0 0 10px
-			&:first-child
-				margin: 0
-				+m
-					margin: 0 0 10px
-			&:last-child
-				+m
-					margin: 0
+				display: block
+				width: 100%
+				margin-bottom: 10px
+				padding: 0
+				vertical-align: top
 	.field
-		display: inline-block
+		display: table-cell
+		margin: 0
+		padding: 0 5px
 		vertical-align: top
-		padding-left: 10px
 		&:first-child
-			padding: 0
+			padding-left: 0
+		&:last-child
+			padding-right: 0
 
 .field
 	margin-bottom: 10px
-	&.field_w40p
+	&.field_w40
 		width: 40%
-	&.field_w60p
-		width: 60%
 	&.field_w60
-		width: 60px
-	&.field_w80
-		width: 80px
-		+m
-			width: 100%
-	&.field_w120
-		width: 120px
-	&.field_w238
-		width: 238px
-		+m
-			width: 100%
+		width: 60%
+	&.field_w85px
+		width: 85px
 	&.field_right
 		text-align: right
 		+m
@@ -788,6 +782,7 @@ a
 	height: 31px
 	padding: 0 10px
 .textarea
+	display: block
 	height: 80px
 	padding: 5px 10px
 	resize: vertical
@@ -1097,12 +1092,16 @@ a
 	overflow: hidden
 	.partners__list
 		margin-right: -50px
+		+m
+			margin: 0 -10px
 		li
 			display: inline-block
 			width: 150px
 			margin: 0 40px 40px 0
 			vertical-align: top
 			font-size: 0
+			+m
+				margin: 0 10px 15px
 
 .story
 	position: relative
@@ -1121,6 +1120,7 @@ a
 		position: relative
 		z-index: 4 
 	.story__item
+		position: relative
 		&:last-child
 			.story__in
 				&:before
@@ -1132,10 +1132,18 @@ a
 				left: 50%
 				width: 900px
 				margin-left: -450px 
+				+m
+					top: 40px
+					left: 40px
+					right: 40px
+					width: auto
+					margin: 0
 	.story__in
 		position: relative
 		padding: 0 0 30px 50px
 		background: #FFF 
+		+m
+			padding: 0 0 20px 20px
 		&:before
 			content: ""
 			position: absolute
@@ -1145,6 +1153,9 @@ a
 			width: 8px 
 			background: #ecedf1 
 			border-radius: 4px
+			+m
+				left: 3px
+				width: 3px
 	.story__year
 		display: block
 		position: relative
@@ -1154,6 +1165,10 @@ a
 		font-size: 40px
 		color: #FFF 
 		line-height: 70px
+		+m
+			padding: 0 20px
+			line-height: 40px
+			font-size: 30px
 		&:before,
 		&:after
 			content: ""
@@ -1165,6 +1180,11 @@ a
 			height: 20px
 			background: $red
 			border-radius: 50% 
+			+m
+				top: -3px
+				left: -20px
+				width: 10px
+				height: 10px
 		&:after
 			top: 0
 			left: -20px
@@ -1174,20 +1194,33 @@ a
 		width: 100%
 		padding: 30px
 		background: #ECEDF1 
+		+m
+			padding: 20px
 	.story__col
 		display: table-cell
 		padding-left: 30px
 		vertical-align: top 
+		+m
+			display: block
+			padding: 10px 0 0 0
 		&:first-child
 			width: 230px
 			padding: 0 30px 0 0
-			border-right: 1px solid $gray
+			border: 1px solid $gray
+			border-width: 0 1px 0 0
+			text-align: right
+			+m
+				width: 100%
+				padding: 0 0 10px 0 
+				border-width: 0 0 1px
+				text-align: left
 	.story__title
-		text-align: right
 		+fl
 		font-size: 24px
 		font-style: italic
 		color: $black 
+		+m
+			font-size: 20px
 	.story__above
 		position: relative
 		background: #FFF
@@ -1421,8 +1454,16 @@ a
 	.filter__cell_w190
 		width: 190px
 		+m
-			width: 100%
 			margin: 0 0 10px
+			&:nth-child(1)
+				width: 100%
+			&:nth-child(2),
+			&:nth-child(3)
+				width: 50%
+			&:nth-child(2)
+				padding-right: 10px
+			&:nth-child(3)
+				padding-left: 10px
 	.filter__cell_w200
 		width: 200px
 	.filter__cell_w240
@@ -1467,6 +1508,8 @@ a
 	.btn_big
 		min-width: 100%
 		margin-bottom: 20px
+		+m
+			margin-bottom: 10px
 
 .project
 	display: table

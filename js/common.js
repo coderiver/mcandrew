@@ -80,32 +80,66 @@ head.ready(function() {
 (function () {
 	var el = $('.js-story');
 	if (el.length) {
-		// height blocks
-		el.each(function () {
-			var elThis = $(this),
-				elHeight = elThis.height();
-			elThis.height(elHeight);
-		});
-		// scroll
-		$(window).scroll(function () {
-			var scrTop = $(document).scrollTop(),
-				topValue = 170,
-				counter = 70;
-			el.each(function (i) {
+		var windowWidth = $(window).width();
+		if (windowWidth > 1024) {
+			var	btnGo = $('.js-story-go'),
+				topValue = 170;
+			// height blocks
+			el.each(function () {
 				var elThis = $(this),
-					elTop = elThis.offset().top - topValue,
-					koef = 0;
-					// koef = i * counter;
-				if (scrTop >= elTop - koef) {
-					elThis.addClass('is-fixed');
-					elThis.find('>div').css('top', topValue + koef);
-				}
-				else {
-					elThis.removeClass('is-fixed');
-					elThis.find('>div').css('top', 'auto');
-				}
+					elHeight = elThis.height();
+				elThis.height(elHeight);
 			});
-		});
+			// hash
+			var hash = window.location.hash;
+			if (hash) {
+				// scroll to el
+				var	hashEl = $(hash),
+					top = hashEl.offset().top,
+					pos = top - topValue;
+				$('html, body').animate({
+					scrollTop: pos
+				}, 700);
+			};
+			// click go
+			btnGo.on('click', function () {
+				var attr = $(this).attr('href'),
+					attrEl = $(attr);
+				// scroll to el
+				var	top = attrEl.offset().top,
+					pos = top - topValue;
+				$('html, body').animate({
+					scrollTop: pos
+				}, 700, function () {
+					window.location.hash = attr;
+				});
+				return false;
+			});
+			// fixed blocks
+			function fixedBlocks () {
+				var scrTop = $(document).scrollTop(),
+					counter = 70;
+				el.each(function (i) {
+					var elThis = $(this),
+						elTop = elThis.offset().top - topValue,
+						koef = 0;
+						// koef = i * counter;
+					if (scrTop >= elTop - koef) {
+						elThis.addClass('is-fixed');
+						elThis.find('>div:first-child').css('top', topValue + koef);
+					}
+					else {
+						elThis.removeClass('is-fixed');
+						elThis.find('>div:first-child').css('top', 'auto');
+					}
+				});
+			}
+			fixedBlocks();
+			// scroll
+			$(window).scroll(function () {
+				fixedBlocks();
+			});
+		};
 	};
 }());
 
