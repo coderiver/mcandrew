@@ -3,15 +3,18 @@ head.ready(function() {
 // nav
 (function () {
 	var btnNav = $('.js-btn-nav'),
-		nav = $('.js-nav');
-	btnNav.on('click', function () {
-		nav.toggle();
-		return false;
-	});
-	nav.find('ul>li>a').on('click', function () {
-		$(this).next().toggle();
-		return false;
-	});
+		nav = $('.js-nav'),
+		windowWidth = $(window).width();
+	if (windowWidth <= 1024) {
+		btnNav.on('click', function () {
+			nav.toggle();
+			return false;
+		});
+		nav.find('ul>li>a:first-child').on('click', function () {
+			$(this).next().toggle();
+			return false;
+		});
+	};
 }());
 
 // menu
@@ -83,7 +86,8 @@ head.ready(function() {
 		var windowWidth = $(window).width();
 		if (windowWidth > 1024) {
 			var	btnGo = $('.js-story-go'),
-				topValue = 170;
+				topValue = 170,
+				counter = 40;
 			// height blocks
 			el.each(function () {
 				var elThis = $(this),
@@ -95,8 +99,10 @@ head.ready(function() {
 			if (hash) {
 				// scroll to el
 				var	hashEl = $(hash),
+					index = hashEl.index(),
+					koef = counter * index,
 					top = hashEl.offset().top,
-					pos = top - topValue;
+					pos = top - topValue - koef;
 				$('html, body').animate({
 					scrollTop: pos
 				}, 700);
@@ -107,7 +113,10 @@ head.ready(function() {
 					attrEl = $(attr);
 				// scroll to el
 				var	top = attrEl.offset().top,
-					pos = top - topValue;
+					index = attrEl.index(),
+					koef = counter * index,
+					top = attrEl.offset().top,
+					pos = top - topValue - koef;
 				$('html, body').animate({
 					scrollTop: pos
 				}, 700, function () {
@@ -117,13 +126,12 @@ head.ready(function() {
 			});
 			// fixed blocks
 			function fixedBlocks () {
-				var scrTop = $(document).scrollTop(),
-					counter = 70;
+				var scrTop = $(document).scrollTop();
 				el.each(function (i) {
 					var elThis = $(this),
 						elTop = elThis.offset().top - topValue,
-						koef = 0;
-						// koef = i * counter;
+						koef = 0,
+						koef = i * counter;
 					if (scrTop >= elTop - koef) {
 						elThis.addClass('is-fixed');
 						elThis.find('>div:first-child').css('top', topValue + koef);

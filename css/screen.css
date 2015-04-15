@@ -165,7 +165,7 @@ a { text-decoration: none; }
 
 .in { position: relative; padding-top: 109px; z-index: 2; }
 @media only screen and (max-width: 1023px) { .in { padding: 0; } }
-.in.in_pt35 { padding-top: 35px; }
+.in.in_pt145 { padding-top: 145px; }
 
 .sl { margin-bottom: 60px; }
 @media only screen and (max-width: 1023px) { .sl { position: relative; margin-bottom: 20px; padding-bottom: 31%; } }
@@ -385,7 +385,6 @@ a.btn_gray { line-height: 27px; }
 .story { position: relative; padding: 10px 0 40px; overflow: hidden; }
 .story:after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 40px; background: white; z-index: 6; }
 .story .story__list { position: relative; z-index: 4; }
-.story .story__item { position: relative; }
 .story .story__item:last-child .story__in:before { background: white; }
 .story .story__item.is-fixed .story__in { position: fixed; top: 170px; left: 50%; width: 900px; margin-left: -450px; }
 @media only screen and (max-width: 1023px) { .story .story__item.is-fixed .story__in { top: 40px; left: 40px; right: 40px; width: auto; margin: 0; } }
@@ -393,8 +392,8 @@ a.btn_gray { line-height: 27px; }
 @media only screen and (max-width: 1023px) { .story .story__in { padding: 0 0 20px 20px; } }
 .story .story__in:before { content: ""; position: absolute; top: 0; left: 6px; bottom: 0; width: 8px; background: #ecedf1; border-radius: 4px; }
 @media only screen and (max-width: 1023px) { .story .story__in:before { left: 3px; width: 3px; } }
-.story .story__year { display: block; position: relative; padding: 0 25px; background: #d63b55; font-family: "Lato-Medium", Arial, sans-serif; font-size: 40px; color: white; line-height: 70px; }
-@media only screen and (max-width: 1023px) { .story .story__year { padding: 0 20px; line-height: 40px; font-size: 30px; } }
+.story .story__year { display: block; position: relative; padding: 0 30px; background: #d63b55; font-family: "Lato-Medium", Arial, sans-serif; font-size: 26px; color: white; line-height: 40px; }
+@media only screen and (max-width: 1023px) { .story .story__year { padding: 0 20px; } }
 .story .story__year:before, .story .story__year:after { content: ""; position: absolute; }
 .story .story__year:before { top: -10px; left: -50px; width: 20px; height: 20px; background: #d63b55; border-radius: 50%; }
 @media only screen and (max-width: 1023px) { .story .story__year:before { top: -3px; left: -20px; width: 10px; height: 10px; } }
