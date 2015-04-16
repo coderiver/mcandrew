@@ -385,6 +385,7 @@ a.btn_gray { line-height: 27px; }
 .story { position: relative; padding: 10px 0 40px; overflow: hidden; }
 .story:after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 40px; background: white; z-index: 6; }
 .story .story__list { position: relative; z-index: 4; }
+.story .story__item:last-child .story__in { padding: 0 0 230px 50px; }
 .story .story__item:last-child .story__in:before { background: white; }
 .story .story__item.is-fixed .story__in { position: fixed; top: 170px; left: 50%; width: 900px; margin-left: -450px; }
 @media only screen and (max-width: 1023px) { .story .story__item.is-fixed .story__in { top: 40px; left: 40px; right: 40px; width: auto; margin: 0; } }
