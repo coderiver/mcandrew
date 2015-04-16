@@ -38,18 +38,18 @@ head.ready(function() {
 				wrapHeight = wrap.height(),
 				wrapWidth = wrap.width(),
 				col = $('.js-f-col'),
-				colHeight = col.height(),
+				colHeight = col.outerHeight(),
 				colWidth = col.width(),
 				scrTop = $(window).scrollTop(),
 				windowWidth = $(window).width(),
 				windowHeight = $(window).height(),
-				marginTop = 139,
+				marginTop = 159,
 				marginCol = 10,
-				border = 32,
 				marginLeft = -wrapWidth/2 + 15;
 			wrap.css('position', 'relative');
 			if (scrTop >= (wrapTop - marginTop) && (windowWidth > 1024)) {
-				if (scrTop >= (wrapTop + wrapHeight - windowHeight + marginTop + border)) {
+				if (scrTop >= (wrapTop + wrapHeight - colHeight - marginTop)) {
+					console.log('1');
 					col.css({
 						'position': 'absolute',
 						'top': 'auto',
@@ -82,6 +82,7 @@ head.ready(function() {
 			}
 		};
 	}
+	fixedColumn();
 	$(window).scroll(function () {
 		fixedColumn();
 	});
